@@ -2,10 +2,15 @@ package com.bjsxt.pojo;
 
 public class Student {
 	private Integer stuNo;//学号
+	
 	private String stuName;//姓名
+	
 	private String stuSex;//性别
+	
 	private String major;//专业
+	
 	private int age;//年龄
+	
 	private float score;//成绩
 	
 	public float getScore() {

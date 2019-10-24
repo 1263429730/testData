@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjsxt.mapper.StudentMapper">
+
+	<!-- 分页的方法 -->
+	<select id="getStudentByPage" parameterType="page" resultMap="result">
+		SELECT *
+		FROM student limit #{startPos},
+		#{pageSize};
+	</select>
+
+	<resultMap id="result" type="com.bjsxt.pojo.Student">
+		<result property="stuNo" column="stuNo" />
+		<result property="stuName" column="stuName" />
+		<result property="stuSex" column="stuSex" />
+		<result property="major" column="major" />
+		<result property="age" column="age" />
+		<result property="score" column="score" />
+	</resultMap>
+
+</mapper>
