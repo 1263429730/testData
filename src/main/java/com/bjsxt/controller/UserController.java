@@ -17,7 +17,12 @@ import com.bjsxt.service.StudentService;
 import com.bjsxt.service.UsersService;
 
 import net.sf.json.JSONArray;
-
+/**
+ * 测试提交
+ * 学生成绩管理控制器
+ * @author Administrator
+ *
+ */
 @RestController
 public class UserController {
 	@Autowired
@@ -25,6 +30,12 @@ public class UserController {
 	@Autowired
 	private UsersService usersService;
 
+	/**
+	 * 查询所有学生的方法
+	 * @param response
+	 * @return
+	 * @throws IOException
+	 */
 	@RequestMapping("findAllStu")
 	public List<Student> findAllStudent(HttpServletResponse response) throws IOException {
 		response.setCharacterEncoding("UTF-8");
@@ -38,7 +49,7 @@ public class UserController {
 	public void findStudentById(Integer stuNo, HttpServletResponse response) throws IOException {
 		response.setContentType("text/json;charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		PrintWriter out = response.getWriter();// .append("Served at: ").append(request.getContextPath());
+		PrintWriter out = response.getWriter();
 
 		// 请求头
 		response.addHeader("Access-Control-Allow-Origin", "*");
@@ -133,15 +144,11 @@ public class UserController {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/json;charset=UTF-8");		// 请求头
 		response.addHeader("Access-Control-Allow-Origin", "*");
-		//PrintWriter out = response.getWriter();
 
 		Page page = null;
-		System.out.println("2111111111111111111111哈哈哈哈"+pageNow);
 		int totalCount = studentService.getAllStudentCount(); // 获取所有学生的数量
-		System.out.println("总数量是++++++++++" + totalCount);
 		page = new Page(totalCount, pageNow);
 		List<Student> stuList = studentService.getStudentByPage(page);
-		//out.write(pageNow);
 		return stuList;
 	}
 
