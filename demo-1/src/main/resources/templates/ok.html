@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>修改成功页面</title>
+<style type="text/css">
+p{
+font-size: 23px;
+}
+</style>
+</head>
+<body>
+	
+		<p th:each="u : ${SayStu}">
+			<span th:text="${u.teacher.name}"></span>在
+			<span th:text="${u.ClassNo}"></span>教室点到了
+				<span th:each="stu : ${SayStu.stuList}">
+					<span style="color:red;" th:text="${stu.stuName}"></span> 
+				</span>
+		</p>
+		
+		
+		</table>
+</body>
+</html>
